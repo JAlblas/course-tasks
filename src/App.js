@@ -25,11 +25,12 @@ const Content = ({ parts }) => {
 };
 
 const Total = ({ parts }) => {
-  const sum = parts[0].exercises + parts[1].exercises + parts[2].exercises;
+  const sum = parts.reduce((previous, part) => previous + part.exercises, 0);
   return <p>Number of exercises: {sum}</p>;
 };
 
 const Course = ({ course }) => {
+
   return (
     <div>
       <Header course={course.name} />
@@ -58,6 +59,11 @@ const App = () => {
         name: 'State of a component',
         exercises: 14,
         id: 3
+      },
+      {
+        name: 'Forms',
+        exercises: 5,
+        id: 4
       }
     ]
   }
